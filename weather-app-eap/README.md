@@ -46,7 +46,7 @@ The code is taken from the application weather-app [GitHub Pages](https://github
 10. Expose the route in order to test the application
 ```$ oc expose svc weather-app-eap```
 
-* Test the application *
+**Test the application**
 
 1. Connect to the application using your route, for example: http://weather-app-eap-weather-app-eap.apps-crc.testing
 
@@ -55,3 +55,19 @@ The code is taken from the application weather-app [GitHub Pages](https://github
 
    $ psql -U $POSTGRESQL_USER $POSTGRESQL_DATABASE -c "update city set weathertype='rainy-5' where id='nyc'";
 ```
+
+**Health Check**
+
+1. Connect to application pod
+
+```$ oc rsh dc/weather-app-eap```
+
+2. Connect to EAP CLI
+
+```$ cd /opt/eap/bin/ \
+   $./jboss-cli --connect
+```
+
+3. Test the health subsystem
+
+```$ /subsystem=microprofile-health-smallrye:check```
