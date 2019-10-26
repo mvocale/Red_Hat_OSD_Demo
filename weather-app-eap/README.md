@@ -66,7 +66,6 @@ The code is taken from the application weather-app [GitHub Pages](https://github
 
    $ psql -U $POSTGRESQL_USER $POSTGRESQL_DATABASE -c "update city set weathertype='rainy-5' where id='nyc'";
 ```
-<<<<<<< HEAD
 
 **Health Check**
 
@@ -83,5 +82,3 @@ The code is taken from the application weather-app [GitHub Pages](https://github
 3. Test the health subsystem
 
 ```$ /subsystem=microprofile-health-smallrye:check```
-=======
->>>>>>> f43cc93c5f8ba072bb741eba4dea8d72a815beec
