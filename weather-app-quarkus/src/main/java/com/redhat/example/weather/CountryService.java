@@ -9,6 +9,7 @@ import javax.ws.rs.PathParam;
 @RequestScoped
 @Path("country")
 public class CountryService {
+    
     @Inject
     SelectedCountry selectedCountry;
 
