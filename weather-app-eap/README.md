@@ -104,5 +104,5 @@ $./jboss-cli.sh  --connect
 3. Test the health subsystem
 
 ```sh
-```$ /subsystem=microprofile-health-smallrye:check
+$ /subsystem=microprofile-health-smallrye:check
 ```
