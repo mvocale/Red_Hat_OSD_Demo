@@ -71,4 +71,13 @@ $ oc expose service weather-app-quarkus
 ### Test the application
 You can test the application using the route http://weather-app-quarkus-redhat-osd-demo.apps-crc.testing. You will be able to connect to the weather application and check the weather in the selected cities.
 
+You can also update the expected weather connecting to postgresql and change the value of the weather
+
+```sh
+$ oc rsh dc/weather-postgresql \
+
+$ psql -U $POSTGRESQL_USER $POSTGRESQL_DATABASE -c "update city set weathertype='rainy-5' where id='nyc'";
+```
+Now you can check again the weather for New York city and verify that the expected weather is rainy.
+
 You can also test the liveness of the application, as described into the Microprofile health specifications, using the URL http://weather-app-quarkus-redhat-osd-demo.apps-crc.testing/health/live. You will see the message that is the outcome of the database check validation.
