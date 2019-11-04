@@ -7,8 +7,8 @@ It contains two projects:
 ## Install on Openshift
 To install the entire demo project on Openshift, remote cluster or local Red Hat Code Ready Container environment, you can launch the deploy-openshift script:
 
-'''sh
+```sh
 ./deploy-openshift.sh
-'''
+```
 
 Remember to login to Openshift environment before launch the script.
