@@ -1,7 +1,7 @@
 # Weather app on JBoss EAP 7.2
 This is a simple project based on JAX-RS, JPA and Microprofile Health specification. 
 
-The code is taken from the application weather-app [GitHub Pages](https://github.com/tqvarnst/weather-app) used in Katacoda JEE Openshift learning (https://www.katacoda.com/openshift/courses/middleware/middleware-javaee8) and modified to run on top of JBoss EAP 7.2.4 and Openshift 4.2crc start
+The code is taken from the application weather-app [GitHub Pages](https://github.com/tqvarnst/weather-app) used in Katacoda JEE Openshift learning (https://www.katacoda.com/openshift/courses/middleware/middleware-javaee8) and modified to run on top of JBoss EAP 7.2.4 and Openshift 4.2.
 
 ## Install on Openshift
 Here you can find the instruction to run the application using Red Hat Code Ready Container developer environment.
