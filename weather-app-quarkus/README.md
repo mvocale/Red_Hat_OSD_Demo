@@ -81,3 +81,12 @@ $ psql -U $POSTGRESQL_USER $POSTGRESQL_DATABASE -c "update city set weathertype=
 Now you can check again the weather for New York city and verify that the expected weather is rainy.
 
 You can also test the liveness of the application, as described into the Microprofile health specifications, using the URL http://weather-app-quarkus-redhat-osd-demo.apps-crc.testing/health/live. You will see the message that is the outcome of the database check validation.
+
+## Test outside Openshift
+If you want to run the application without Openshift you can lauch the following command:
+
+```sh
+$ mvn package quarkus:dev -Dquarkus.profile=dev-memory-db
+```
+
+In this way you can test the application connecting to http://localhost:8080. The application will use an h2 in memory database.
