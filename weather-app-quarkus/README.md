@@ -35,35 +35,40 @@ $ oc new-app -e POSTGRESQL_USER=mauro -ePOSTGRESQL_PASSWORD=secret -ePOSTGRESQL_
 5. Create the build related to the weather app that will be deployed as fat jar with Quarkus
 
 ```sh
-oc new-build --binary=true --name=weather-app-quarkus -l app=weather-app-quarkus
+$ oc new-build --binary=true --name=weather-app-quarkus -l app=weather-app-quarkus
 ```
 
 6. Patch the build config in order to set the Docker strategy
 
 ```sh
-oc patch bc/weather-app-quarkus -p "{\"spec\":{\"strategy\":{\"dockerStrategy\":{\"dockerfilePath\":\"src/main/docker/Dockerfile.jvm\"}}}}"
+$ oc patch bc/weather-app-quarkus -p "{\"spec\":{\"strategy\":{\"dockerStrategy\":{\"dockerfilePath\":\"src/main/docker/Dockerfile.jvm\"}}}}"
 ```
  
 7. Run the Maven build
 
 ```sh
-mvn package -Dquarkus.profile=dev-postgresql-db
+$ mvn package -Dquarkus.profile=dev-postgresql-db
 ```
 
 8. Start the build of the application on Openshift
 
 ```sh
-oc start-build weather-app-quarkus --from-dir=. --follow
+$ oc start-build weather-app-quarkus --from-dir=. --follow
 ```
 
 9. Create the weather application for Quarkus and configure it
 
 ```sh
-oc new-app --image-stream=weather-app-quarkus:latest -e quarkus.datasource.url='jdbc:postgresql://weather-postgresql:5432/weather'
+$ oc new-app --image-stream=weather-app-quarkus:latest -e quarkus.datasource.url='jdbc:postgresql://weather-postgresql:5432/weather'
 ```
 
 10. Expose the route in order to make the application available outside of Openshift
 
 ```sh
-oc expose service weather-app-quarkus
+$ oc expose service weather-app-quarkus
 ```
+
+### Test the application
+You can test the application using the route http://weather-app-quarkus-redhat-osd-demo.apps-crc.testing. You will be able to connect to the weather application and check the weather in the selected cities.
+
+You can also test the liveness of the application, as described into the Microprofile health specifications, using the URL http://weather-app-quarkus-redhat-osd-demo.apps-crc.testing/health/live. You will see the message that is the outcome of the database check validation.
