@@ -7,6 +7,7 @@ import org.eclipse.microprofile.health.Health;
 import org.eclipse.microprofile.health.HealthCheck;
 import org.eclipse.microprofile.health.HealthCheckResponse;
 import org.eclipse.microprofile.health.HealthCheckResponseBuilder;
+import org.eclipse.microprofile.metrics.annotation.Metric;
 
 /**
  *
