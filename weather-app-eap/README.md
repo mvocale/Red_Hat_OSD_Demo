@@ -28,7 +28,7 @@ $ oc new-project weather-app-eap --display-name="Weather App EAP"
 
 ```sh
 $ oc import-image rhscl/postgresql-10-rhel7 --from=registry.access.redhat.com/rhscl/postgresql-10-rhel7 --confirm \
-$ oc new-app -e POSTGRESQL_USER=mauro -ePOSTGRESQL_PASSWORD=secret -ePOSTGRESQL_DATABASE=weather postgresql-10-rhel7 --name=weather-postgresql
+$ oc new-app -e POSTGRESQL_USER=mauro -e POSTGRESQL_PASSWORD=secret -e POSTGRESQL_DATABASE=weather postgresql-10-rhel7 --name=weather-postgresql
 ```
 
 5. Import the JBoss EAP 7.2 Openjdk 8 image
